@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Branching Quiz</title>
+  <title>Ivan HELDER</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
     .question { margin-bottom: 1.5rem; display: none; }
@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <h1>Choose Your Destiny</h1>
+  <h1>Ivan HELDER</h1>
   <form id="quizForm"></form>
   <div class="code-output" id="codeOutput"></div>
 
@@ -38,7 +38,7 @@
       div.className = 'question';
       div.dataset.qid = qid;
 
-      div.innerHTML = `<p><strong>${q.question}</strong></p>`;
+      div.innerHTML = `<p>${q.question}</p>`;
 
       const answerDiv = document.createElement('div');
       answerDiv.className = 'answers';
@@ -48,7 +48,7 @@
         answerDiv.innerHTML += `
           <label>
             <input type="radio" name="${qid}" value="${i + 1}" />
-            ${choice}
+            <strong>${choice}</strong>
           </label>
         `;
       });
