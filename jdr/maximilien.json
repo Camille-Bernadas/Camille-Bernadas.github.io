@@ -1,11 +1,32 @@
 [
   {
+    "id": "i1",
+    "question": "Que préfères-tu pour ton personnage ?",
+    "choices": ["Mourir en héros",
+        "Survivre et partir de Barovie.",
+        "Tout me convient",
+        "Survivre et rester en Barovie"
+    ],
+    "next": {
+      "any": "i2"
+    }
+  },
+  {
+    "id": "i2",
+    "question": "Il faudra envoyer à Camille le code que tu obtiendras à la fin du questionnaire. Il ne faut pas recommencer le questionnaire pour lire les autres réponses, pas de triche ! Tu sauras quelles bonus et malus ton personnage obtient quand Camille répondra à ton code.",
+    "choices": ["Commencer la nuit."
+    ],
+    "next": {
+      "any": "q1"
+    }
+  },
+  {
     "id": "q1",
-    "question": "Pendant la nuit, Zantras t'apparaît. Il est dans son siège, derrière ce simple bureau de bois, dans la grande salle où il t'a déjà accueilli maintes fois. Derrière toi, bloqués par une porte de bois, les bruits et musique étrangement familiers d'une taverne se font entendre.",
-    "choices": ["Le saluer chaleureusement",
-        "Le saluer avec déférence",
+    "question": "Pendant la nuit, Astreidr t'apparaît. Elle est au bord de la fenêtre de sa tour, face au paysage ensoleillé de la vallée, te tournant le dos. Derrière toi, la porte de bois qui donne sur la volée de marches qui permettent de descendre hors de la tour est fermée. L'air est doux, des oiseaux chantent à l'extérieur et le lit à baldaquin qui te fait face a l'air particulièrement confortable.",
+    "choices": ["La saluer avec déférence",
+        "S'allonger nonchalamment dans le lit",
         "Se montrer méfiant",
-        "L'ignorer, se rapprocher de la porte en bois."
+        "Ignorer Astreidr, se rapprocher de la porte en bois."
     ],
     "next": {
       "1": "q2", 
@@ -16,10 +37,10 @@
   },
   {
     "id": "q2",
-    "question": "Zantras s'exclame: <Mon ami ! Approche, je t'en prie. Nous avons de nombreux points à aborder.>",
-    "choices": ["<Ah bon ? Lesquels ?>",
-        "<Bien sûr !> S'asseoir en face de Zantras",
-        "Paniquer, et partir en courant vers la porte en bois.",
+    "question": "Astreidr glousse: &lt;Mon cher, je t'en prie, mets-toi à l'aise. J'ai attendu ton retour avec impatience.&gt;",
+    "choices": ["&lt;Ah oui ? Et pourquoi donc ? ?&gt;",
+        "&lt;Et moi donc !&gt; Admirer Astreidr avec désir.",
+        "Déglutir avec difficulté, et prétexter un rendez-vous urgent en s'éloignant.",
         "Refuser d'un signe de tête, et s'éloigner."
     ],
     "next": {
@@ -31,8 +52,8 @@
   },
   {
     "id": "q3",
-    "question": "Zantras annonce: <Tu as une dette envers moi, tu me dois la vie après tout. Et pour payer ta dette, je pense que le plus simple serait... Une vie pour une vie. >",
-    "choices": ["<Celle de qui ?>", "<Je ne suis pas un meurtrier, je ne combats que pour la justice.>", "<Je refuse. Catégoriquement.>", "Paniquer, et partir en courant vers la porte en bois."],
+    "question": "Astreidr annonce: &lt;J'ai un cadeau à te faire. Pour te faciliter la vie, et la rendre plus douce... &gt;",
+    "choices": ["&lt;Super ! Qu'est-ce que c'est ?&gt;", "La remercier.", "L'observer avec curiosité", "Paniquer, et s'éloigner vers la porte en bois."],
     "next": {
       "1": "q4", 
       "2": "q4", 
@@ -42,10 +63,10 @@
 },
 {
     "id": "q4",
-    "question": "<Il faut absolument tuer le tyran Strahd. Et que tu prennes sa place en tant que Roi humble et juste, honnête et protecteur.>",
-    "choices": ["<D'accord.>", "<Je le tuerai, mais je ne prendrai pas sa place.>", "Garder le silence.", "<Je veux juste quitter la Barovie et rentrer chez moi.>"],
+    "question": "Astreidr s'allonge sur le lit. &lt;Tu sais, c'est le pendentif d'ambre, celui à ton cou, qui permet à nos esprits de se ... toucher. Mais mon corps, mon vrai corps, est enfermé. J'aimerais tant que tu me délivres... Et pour ça, il faudra briser les chaînes que Strahd maintient autour de moi.&gt;",
+    "choices": ["&lt;Ne puis-je pas te délivrer sans le combattre ?&gt;", "&lt;Dans ce cas, je le tuerai, et je viendrai te délivrer.&gt;", "Garder le silence.", "&lt;Je veux juste quitter la Barovie, je n'ai pas ma place ici.&gt;"],
     "next": {
-      "1": "q6", 
+      "1": "q5", 
       "2": "q6", 
       "3": "q6", 
       "4": "q5"
@@ -53,8 +74,8 @@
 },
 {
     "id": "q5",
-    "question": "<Il est impossible de quitter la Barovie tant que Strahd contrôle la région.>",
-    "choices": ["<Je comprends.>", "Garder le silence.", "Refuser malgré tout et s'éloigner.", "<Je ne te fais pas confiance. Tu pourrais me mentir !>"],
+    "question": "&lt;C'est impossible, la Barovie toute entière est sous le contrôle de Strahd...&gt;",
+    "choices": ["&lt;Je comprends.&gt;", "Garder le silence.", "Accuser l'information et s'éloigner pour y réfléchir.", "&lt;J'ai peur, je ne veux pas me battre contre lui.&gt;"],
     "next": {
       "1": "q6", 
       "2": "q6", 
@@ -64,8 +85,8 @@
 },
 {
     "id": "q6",
-    "question": "<Laisse moi t'aider. Je vais te prêter ma force, mais il faut d'abord que tu promettes de m'aider quand j'aurai besoin de ton aide.>",
-    "choices": ["Promettre", "<Merci beaucoup. C'est d'accord !>", "<Non merci, garde tes forces. Je me débrouillerai.>", "<Je ne te promets rien du tout.>"],
+    "question": "&lt;Approche, laisse moi t'offrir mon cadeau...&gt;Astreidr, toujours allongée sur le lit, te tend les bras, les lèvres tendues. Une douce aura sembre l'entourer, un sentiment de certitude se fait sentir dans la pièce.",
+    "choices": ["S'approcher et l'enlacer en prenant les choses en main", "S'offrir à elle et se laisser guider.", "Refuser avec douceur.", "&lt;Je ne veux pas de toi.&gt;"],
     "next": {
       "1": "q9", 
       "2": "q9", 
@@ -75,7 +96,7 @@
 },
 {
     "id": "q7",
-    "question": "La porte semble fermée mais une douce lumière orange filtre à travers le trou de la serrure; elle n'est pas verrouillée. Tu reconnais la voix d'Eol et Maximilien dans l'autre pièce.",
+    "question": "La porte semble fermée mais pas verrouillée, elle est étrangement froide.",
     "choices": ["Ouvrir la porte."],
     "next": {
       "any": "q7b"
@@ -83,8 +104,8 @@
 },
 {
     "id": "q7b",
-    "question": "La pièce est une salle commune ordinaire mais, alors que tu ouvres la porte, le feu de l'âtre se met à grandir et à dévorer tout sur son passage. Eol, Maximilien, Mélisandre et Nahis sont entourés par les flammes et semblent apeurés.",
-    "choices": ["Observer la scène sans bouger.","Chercher des yeux un moyen de les aider, une corde, un sceau d'eau, n'importe quoi.","Crier à l'aide.","Foncer à travers les flammes malgré le danger."],
+    "question": "Un escalier en colimaçon descend vers le pied de la tour. Tu crois entendre un cri de détresse et de douleur; et c'est la voix de ta soeur. Derrière toi, Astreidr t'appelle, t'intimant de ne pas croire ce que tu entends.",
+    "choices": ["Écouter et attendre un nouveau bruit sans bouger.","Se tourner à nouveau vers Astreidr.","Crier le nom de ta soeur, lui demander ce qu'il se passe.","Foncer sans se retourner en dévalant les marches."],
     "next": {
       "1": "q8", 
       "2": "q8", 
@@ -94,8 +115,8 @@
 },
 {
     "id": "q8",
-    "question": "Les cris de panique sont rapidement remplacés par des cris de souffrance, puis après quelques instants infinis, le silence s'installe. Zantras pose une main sur ton épaule: <Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.>",
-    "choices": ["<... Tu as raison, il faut le vaincre.>", "Se détourner de cette scène horrifique et suivre Zantras jusqu'au bureau.", "Repousser la main de Zantras. Tu ne veux plus rien avoir à faire avec lui pour l'instant.", "<Tu mens, c'est ta faute, JE TE HAIS !>"],
+    "question": "Un nouveau cri de douleur déchire l'air et glace ton sang. Puis le silence s'installe. Astreidr murmure tout doucement: &lt;Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.&gt;. Elle te tend à nouveau les bras.",
+    "choices": ["&lt;... Tu as raison, il faut le vaincre.&gt; S'approcher d'Astreidr", "Se détourner des escaliers et de leurs bruits horribles, et aller chercher le réconfort d'Astreidr.", "Rejeter la proposition. Tu ne veux plus rien avoir à faire avec elle pour l'instant.", "&lt;Tu mens, c'est ta faute, JE TE HAIS !&gt;"],
     "next": {
       "1": "q9", 
       "2": "q9", 
@@ -105,23 +126,23 @@
 },
 {
     "id": "q9",
-    "question": "Zantras produit de sa cape une couronne d'or. Il te la pose sur la tête et tu te sens plus... royal. Zantras t'adresse alors un sourire carnassier et un regard entendu. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
+    "question": "Sa peau est douce et chaude, ses lèvres aussi. Elle te serre contre elle, et une énergie étrange semble se transmettre entre vous. Plusieurs moments aux durées floues passent, dans une extase absolu. Ta peau est griffée et transpercée par ses doigts, mais tu lui rends... à ta façon. Dans un effort final, la sensation se décuple et le rêve disparait dans un flash. Tu te réveilles, reposé et étrangement déterminé.",
     "choices": ["Se réveiller"]
 },
 {
     "id": "q10",
-    "question": "Le sourire permanent de Zantras s'efface, laissant la place à un regard sombre. La pièce s'assombrit et s'efface alors que le rêve s'envole en volutes de fumée. Pendant quelques instants, les yeux maintenant oranges de Zantras continuent à te fixer d'un air mauvais dans un noir complet. Tu te réveilles, épuisé mais le coeur un peu plus léger.",
+    "question": "L'escalier s'efface, la tour aussi. Les yeux de chat d'Astreidr te fixent d'un air mauvais dans un noir complet. Sa voix se fait sifflante, si forte que l'air vibre, mais tu ne comprends pas le moindre mot. Tu te réveilles, épuisé mais le coeur un peu plus léger. Le crystal de ton pendentif est brisé.",
     "choices": ["Se réveiller"]
     
 },
 {
     "id": "q11",
-    "question": "Le sourire permanent de Zantras se fixe dans une expression de surprise: <Je vais te laisser en paix. Viens me trouver quand tu en auras le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, en sueur et la respiration sifflante.",
+    "question": "Astreidr s'effondre et se met à pleurer sous le coup d'une profonde tristesse: &lt;Maximilien... Tu me condamnes à une longue éternité d'emprisonnement ! Je t'en supplie, aide-moi ! &gt;. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, le coeur serré.",
     "choices": ["Se réveiller"]
 },
 {
     "id": "q12",
-    "question": "C'est plus fort que toi, une force impétueuse qui dirige ton bras. Le sourire permanent de Zantras ne s'efface pas alors que tu plonges ta lame dans son coeur. Tu sens une force traverser la lame et venir t'abreuver. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
+    "question": "Sa peau est douce et chaude, ses lèvres aussi. Elle te serre contre elle, et une énergie étrange semble se transmettre entre vous. Sa langue vient à la rencontre de la tienne. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement déterminé.",
     "choices": ["Se réveiller"]
 }
 ]

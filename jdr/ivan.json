@@ -1,5 +1,26 @@
 [
   {
+    "id": "i1",
+    "question": "Que préfères-tu pour ton personnage ?",
+    "choices": ["Mourir en héros",
+        "Survivre et partir de Barovie.",
+        "Tout me convient",
+        "Survivre et rester en Barovie"
+    ],
+    "next": {
+      "any": "i2"
+    }
+  },
+  {
+    "id": "i2",
+    "question": "Il faudra envoyer à Camille le code que tu obtiendras à la fin du questionnaire. Il ne faut pas recommencer le questionnaire pour lire les autres réponses, pas de triche ! Tu sauras quelles bonus et malus ton personnage obtient quand Camille répondra à ton code.",
+    "choices": ["Commencer la nuit."
+    ],
+    "next": {
+      "any": "q1"
+    }
+  },
+  {
     "id": "q1",
     "question": "Pendant la nuit, Zantras t'apparaît. Il est dans son siège, derrière ce simple bureau de bois, dans la grande salle où il t'a déjà accueilli maintes fois. Derrière toi, bloqués par une porte de bois, les bruits et musique étrangement familiers d'une taverne se font entendre.",
     "choices": ["Le saluer chaleureusement",
@@ -110,7 +131,7 @@
 },
 {
     "id": "q10",
-    "question": "Le sourire permanent de Zantras s'efface, laissant la place à un regard sombre. La pièce s'assombrit et s'efface alors que le rêve s'envole en volutes de fumée. Pendant quelques instants, les yeux maintenant oranges de Zantras continuent à te fixer d'un air mauvais dans un noir complet. Tu te réveilles, épuisé mais le coeur un peu plus léger.",
+    "question": "Le sourire permanent de Zantras s'efface, laissant la place à un regard sombre. La pièce s'assombrit et s'efface alors que le rêve s'envole en volutes de fumée. Pendant quelques instants, les yeux maintenant oranges de Zantras continuent à te fixer d'un air mauvais dans un noir complet. Tu te réveilles, épuisé mais le coeur un peu plus léger. Le crystal de ton pendentif est brisé.",
     "choices": ["Se réveiller"]
     
 },
