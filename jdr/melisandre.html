@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ivan HELDER</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    .question { margin-bottom: 1.5rem; display: none; }
+    .answers label { display: block; margin: 0.3rem 0; }
+    .code-output { margin-top: 2rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Ivan HELDER</h1>
+  <form id="quizForm"></form>
+  <div class="code-output" id="codeOutput"></div>
+
+  <script>
+    let quizData = [];
+    let answers = {};
+    let questionMap = {};
+
+    async function loadQuiz() {
+      const res = await fetch('melisandre.json');
+      quizData = await res.json();
+
+      quizData.forEach(q => questionMap[q.id] = q);
+
+      showQuestion(quizData[0].id);
+    }
+
+    function showQuestion(qid) {
+      const q = questionMap[qid];
+      const form = document.getElementById('quizForm');
+
+      const div = document.createElement('div');
+      div.className = 'question';
+      div.dataset.qid = qid;
+
+      div.innerHTML = `<p>${q.question}</p>`;
+
+      const answerDiv = document.createElement('div');
+      answerDiv.className = 'answers';
+
+      q.choices.forEach((choice, i) => {
+        const id = `${qid}_${i + 1}`;
+        answerDiv.innerHTML += `
+          <label>
+            <input type="radio" name="${qid}" value="${i + 1}" />
+            <strong>${choice}</strong>
+          </label>
+        `;
+      });
+
+      div.appendChild(answerDiv);
+      form.appendChild(div);
+      div.style.display = 'block';
+
+      div.addEventListener('change', () => {
+        const selected = form.querySelector(`input[name="${qid}"]:checked`);
+        if (!selected) return;
+
+        const value = selected.value;
+        answers[qid] = parseInt(value);
+        
+        // Remove all future questions after this one
+        const nextElements = [...form.querySelectorAll('.question')];
+        let remove = false;
+        nextElements.forEach(el => {
+          if (el.dataset.qid === qid) {
+            remove = true;
+            return;
+          }
+          if (remove) el.remove();
+        });
+
+        // Determine next question ID
+        let nextId = null;
+        if (q.next) {
+          nextId = q.next[value] || q.next['any'];
+        }
+
+        if (nextId) {
+          showQuestion(nextId);
+        } else {
+          showSubmit();
+        }
+      });
+    }
+
+    function showSubmit() {
+      const form = document.getElementById('quizForm');
+      if (!form.querySelector('button[type="submit"]')) {
+        const submitBtn = document.createElement('button');
+        submitBtn.type = 'submit';
+        submitBtn.textContent = 'Submit';
+        form.appendChild(submitBtn);
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const selectedAnswers = Object.values(answers);
+          const code = encodeAnswersBase4(selectedAnswers);
+          document.getElementById('codeOutput').textContent = `Your code: ${code}`;
+        });
+      }
+    }
+
+    function encodeAnswersBase4(ans) {
+      let number = 0;
+      for (let i = 0; i < ans.length; i++) {
+        number = number * 4 + (ans[i] - 1);
+      }
+      return number.toString(36).toUpperCase();
+    }
+
+    loadQuiz();
+  </script>
+</body>
+</html>

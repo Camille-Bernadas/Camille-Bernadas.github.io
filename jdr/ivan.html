@@ -22,7 +22,7 @@
     let questionMap = {};
 
     async function loadQuiz() {
-      const res = await fetch('quiz.json');
+      const res = await fetch('ivan.json');
       quizData = await res.json();
 
       quizData.forEach(q => questionMap[q.id] = q);
