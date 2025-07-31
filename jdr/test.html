@@ -2,66 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Short Code Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Encoder</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    .question {
-      margin-bottom: 1.5rem;
-    }
-    label {
-      display: block;
-      margin: 0.25rem 0;
-    }
-    #result {
-      margin-top: 2rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    input[type="text"] {
-      width: 100px;
-    }
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    .question { margin-bottom: 1rem; }
+    .answers label { display: block; margin: 0.3rem 0; }
+    .code-output { margin-top: 2rem; font-weight: bold; }
   </style>
 </head>
 <body>
-  <h1>Quiz</h1>
-
-  <form id="quizForm">
-    <div id="questions"></div>
-    <button type="submit">Get Code</button>
-  </form>
-
-  <div id="result"></div>
-
-  <h2>Decode a code</h2>
-  <input type="text" id="decodeInput" placeholder="e.g. A8" />
-  <button id="decodeBtn">Decode</button>
-  <div id="decodedResult"></div>
+  <h1>Take the Quiz</h1>
+  <form id="quizForm"></form>
+  <div class="code-output" id="codeOutput"></div>
 
   <script>
-    const questionCount = 6;
-    const questionsEl = document.getElementById("questions");
+    async function loadQuiz() {
+      const res = await fetch('quiz.json');
+      const questions = await res.json();
+      const form = document.getElementById('quizForm');
 
-    // Generate questions
-    for (let i = 0; i < questionCount; i++) {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `<strong>Question ${i + 1}</strong>`;
-      for (let j = 1; j <= 4; j++) {
-        div.innerHTML += `
-          <label>
-            <input type="radio" name="q${i}" value="${j}" required />
-            Option ${j}
-          </label>`;
-      }
-      questionsEl.appendChild(div);
+      questions.forEach((q, i) => {
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'answers';
+        q.choices.forEach((choice, j) => {
+          const id = `q${i}_a${j}`;
+          answerDiv.innerHTML += `
+            <label>
+              <input type="radio" name="q${i}" value="${j + 1}" required />
+              ${choice}
+            </label>
+          `;
+        });
+
+        div.appendChild(answerDiv);
+        form.appendChild(div);
+      });
+
+      const submitBtn = document.createElement('button');
+      submitBtn.type = 'submit';
+      submitBtn.textContent = 'Submit';
+      form.appendChild(submitBtn);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const answers = questions.map((_, i) => parseInt(formData.get(`q${i}`), 10));
+        const code = encodeAnswersBase4(answers);
+        document.getElementById('codeOutput').textContent = `Your code: ${code}`;
+      });
     }
 
-    // Encode answers
     function encodeAnswersBase4(answers) {
       let number = 0;
       for (let i = 0; i < answers.length; i++) {
@@ -70,40 +65,7 @@
       return number.toString(36).toUpperCase();
     }
 
-    // Decode code
-    function decodeAnswersBase4(code, count) {
-      let number = parseInt(code, 36);
-      const answers = [];
-      for (let i = 0; i < count; i++) {
-        answers.unshift((number % 4) + 1);
-        number = Math.floor(number / 4);
-      }
-      return answers;
-    }
-
-    // Handle submit
-    document.getElementById("quizForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const answers = [];
-      for (let i = 0; i < questionCount; i++) {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        answers.push(parseInt(selected.value));
-      }
-      const code = encodeAnswersBase4(answers);
-      document.getElementById("result").textContent = `Your code: ${code}`;
-    });
-
-    // Handle decode
-    document.getElementById("decodeBtn").addEventListener("click", () => {
-      const code = document.getElementById("decodeInput").value.trim().toUpperCase();
-      if (!code.match(/^[0-9A-Z]+$/)) {
-        document.getElementById("decodedResult").textContent = "Invalid code.";
-        return;
-      }
-      const answers = decodeAnswersBase4(code, questionCount);
-      document.getElementById("decodedResult").textContent =
-        `Decoded answers: ${answers.join(", ")}`;
-    });
+    loadQuiz();
   </script>
 </body>
 </html>

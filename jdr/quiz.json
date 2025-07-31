@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is your favorite color?",
+    "choices": ["Red", "Blue", "Green", "Yellow"]
+  },
+  {
+    "question": "Pick a pet.",
+    "choices": ["Dog", "Cat", "Bird", "Fish"]
+  },
+  {
+    "question": "Choose a dessert.",
+    "choices": ["Cake", "Ice Cream", "Pie", "Fruit"]
+  },
+  {
+    "question": "Pick a time of day.",
+    "choices": ["Morning", "Afternoon", "Evening", "Night"]
+  },
+  {
+    "question": "Pick a weather.",
+    "choices": ["Sunny", "Rainy", "Snowy", "Cloudy"]
+  }
+]
