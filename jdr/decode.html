@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Short Code Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin: 0.25rem 0;
+    }
+    #result {
+      margin-top: 2rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    input[type="text"] {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz</h1>
+
+  <h2>Decode a code</h2>
+  <input type="text" id="decodeInput" placeholder="e.g. A8" />
+  <button id="decodeBtn">Decode</button>
+  <div id="decodedResult"></div>
+
+  <script>
+    const questionCount = 6;
+    const questionsEl = document.getElementById("questions");
+
+    
+
+    // Decode code
+    function decodeAnswersBase4(code, count) {
+      let number = parseInt(code, 36);
+      const answers = [];
+      for (let i = 0; i < count; i++) {
+        answers.unshift((number % 4) + 1);
+        number = Math.floor(number / 4);
+      }
+      return answers;
+    }
+
+    
+
+    // Handle decode
+    document.getElementById("decodeBtn").addEventListener("click", () => {
+      const code = document.getElementById("decodeInput").value.trim().toUpperCase();
+      if (!code.match(/^[0-9A-Z]+$/)) {
+        document.getElementById("decodedResult").textContent = "Invalid code.";
+        return;
+      }
+      const answers = decodeAnswersBase4(code, questionCount);
+      document.getElementById("decodedResult").textContent =
+        `Decoded answers: ${answers.join(", ")}`;
+    });
+  </script>
+</body>
+</html>

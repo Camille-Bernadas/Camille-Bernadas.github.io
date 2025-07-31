@@ -1,22 +1,30 @@
 [
   {
-    "question": "What is your favorite color?",
-    "choices": ["Red", "Blue", "Green", "Yellow"]
+    "id": "q1",
+    "question": "Choose your path.",
+    "choices": ["Warrior", "Mage", "Rogue", "Bard"],
+    "next": {
+      "1": "q2", 
+      "2": "q3", 
+      "3": "q3", 
+      "4": "q2"
+    }
   },
   {
-    "question": "Pick a pet.",
-    "choices": ["Dog", "Cat", "Bird", "Fish"]
+    "id": "q2",
+    "question": "You chose strength. What is your weapon?",
+    "choices": ["Sword", "Axe", "Hammer", "Spear"],
+    "next": { "any": "q4" }
   },
   {
-    "question": "Choose a dessert.",
-    "choices": ["Cake", "Ice Cream", "Pie", "Fruit"]
+    "id": "q3",
+    "question": "You chose magic. What element?",
+    "choices": ["Fire", "Ice", "Lightning", "Darkness"],
+    "next": { "any": "q4" }
   },
   {
-    "question": "Pick a time of day.",
-    "choices": ["Morning", "Afternoon", "Evening", "Night"]
-  },
-  {
-    "question": "Pick a weather.",
-    "choices": ["Sunny", "Rainy", "Snowy", "Cloudy"]
+    "id": "q4",
+    "question": "Final boss appears! What do you do?",
+    "choices": ["Attack", "Defend", "Use Item", "Run"]
   }
 ]
