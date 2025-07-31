@@ -16,9 +16,9 @@
   },
   {
     "id": "q2",
-    "question": "Zantras s'exclame: <Mon ami ! Approche, je t'en prie. Nous avons de nombreux points à aborder.>",
-    "choices": ["<Ah bon ? Lesquels ?>",
-        "<Bien sûr !> S'asseoir en face de Zantras",
+    "question": "Zantras s'exclame: &lt;Mon ami ! Approche, je t'en prie. Nous avons de nombreux points à aborder.&gt;",
+    "choices": ["&lt;Ah bon ? Lesquels ?&gt;",
+        "&lt;Bien sûr !&gt; S'asseoir en face de Zantras",
         "Paniquer, et partir en courant vers la porte en bois.",
         "Refuser d'un signe de tête, et s'éloigner."
     ],
@@ -31,8 +31,8 @@
   },
   {
     "id": "q3",
-    "question": "Zantras annonce: <Tu as une dette envers moi, tu me dois la vie après tout. Et pour payer ta dette, je pense que le plus simple serait... Une vie pour une vie. >",
-    "choices": ["<Celle de qui ?>", "<Je ne suis pas un meurtrier, je ne combats que pour la justice.>", "<Je refuse. Catégoriquement.>", "Paniquer, et partir en courant vers la porte en bois."],
+    "question": "Zantras annonce: &lt;Tu as une dette envers moi, tu me dois la vie après tout. Et pour payer ta dette, je pense que le plus simple serait... Une vie pour une vie. &gt;",
+    "choices": ["&lt;Celle de qui ?&gt;", "&lt;Je ne suis pas un meurtrier, je ne combats que pour la justice.&gt;", "&lt;Je refuse. Catégoriquement.&gt;", "Paniquer, et partir en courant vers la porte en bois."],
     "next": {
       "1": "q4", 
       "2": "q4", 
@@ -42,8 +42,8 @@
 },
 {
     "id": "q4",
-    "question": "<Il faut absolument tuer le tyran Strahd. Et que tu prennes sa place en tant que Roi humble et juste, honnête et protecteur.>",
-    "choices": ["<D'accord.>", "<Je le tuerai, mais je ne prendrai pas sa place.>", "Garder le silence.", "<Je veux juste quitter la Barovie et rentrer chez moi.>"],
+    "question": "&lt;Il faut absolument tuer le tyran Strahd. Et que tu prennes sa place en tant que Roi humble et juste, honnête et protecteur.&gt;",
+    "choices": ["&lt;D'accord.&gt;", "&lt;Je le tuerai, mais je ne prendrai pas sa place.&gt;", "Garder le silence.", "&lt;Je veux juste quitter la Barovie et rentrer chez moi.&gt;"],
     "next": {
       "1": "q6", 
       "2": "q6", 
@@ -53,8 +53,8 @@
 },
 {
     "id": "q5",
-    "question": "<Il est impossible de quitter la Barovie tant que Strahd contrôle la région.>",
-    "choices": ["<Je comprends.>", "Garder le silence.", "Refuser malgré tout et s'éloigner.", "<Je ne te fais pas confiance. Tu pourrais me mentir !>"],
+    "question": "&lt;Il est impossible de quitter la Barovie tant que Strahd contrôle la région.&gt;",
+    "choices": ["&lt;Je comprends.&gt;", "Garder le silence.", "Refuser malgré tout et s'éloigner.", "&lt;Je ne te fais pas confiance. Tu pourrais me mentir !&gt;"],
     "next": {
       "1": "q6", 
       "2": "q6", 
@@ -64,8 +64,8 @@
 },
 {
     "id": "q6",
-    "question": "<Laisse moi t'aider. Je vais te prêter ma force, mais il faut d'abord que tu promettes de m'aider quand j'aurai besoin de ton aide.>",
-    "choices": ["Promettre", "<Merci beaucoup. C'est d'accord !>", "<Non merci, garde tes forces. Je me débrouillerai.>", "<Je ne te promets rien du tout.>"],
+    "question": "&lt;Laisse moi t'aider. Je vais te prêter ma force, mais il faut d'abord que tu promettes de m'aider quand j'aurai besoin de ton aide.&gt;",
+    "choices": ["Promettre", "&lt;Merci beaucoup. C'est d'accord !&gt;", "&lt;Non merci, garde tes forces. Je me débrouillerai.&gt;", "&lt;Je ne te promets rien du tout.&gt;"],
     "next": {
       "1": "q9", 
       "2": "q9", 
@@ -94,8 +94,8 @@
 },
 {
     "id": "q8",
-    "question": "Les cris de panique sont rapidement remplacés par des cris de souffrance, puis après quelques instants infinis, le silence s'installe. Zantras pose une main sur ton épaule: <Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.>",
-    "choices": ["<... Tu as raison, il faut le vaincre.>", "Se détourner de cette scène horrifique et suivre Zantras jusqu'au bureau.", "Repousser la main de Zantras. Tu ne veux plus rien avoir à faire avec lui pour l'instant.", "<Tu mens, c'est ta faute, JE TE HAIS !>"],
+    "question": "Les cris de panique sont rapidement remplacés par des cris de souffrance, puis après quelques instants infinis, le silence s'installe. Zantras pose une main sur ton épaule: &lt;Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.&gt;",
+    "choices": ["&lt;... Tu as raison, il faut le vaincre.&gt;", "Se détourner de cette scène horrifique et suivre Zantras jusqu'au bureau.", "Repousser la main de Zantras. Tu ne veux plus rien avoir à faire avec lui pour l'instant.", "&lt;Tu mens, c'est ta faute, JE TE HAIS !&gt;"],
     "next": {
       "1": "q9", 
       "2": "q9", 
@@ -116,7 +116,7 @@
 },
 {
     "id": "q11",
-    "question": "Le sourire permanent de Zantras se fixe dans une expression de surprise: <Je vais te laisser en paix. Viens me trouver quand tu en auras le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, en sueur et la respiration sifflante.",
+    "question": "Le sourire permanent de Zantras se fixe dans une expression de surprise: &lt;Je vais te laisser en paix. Viens me trouver quand tu en auras le besoin...&gt;. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, en sueur et la respiration sifflante.",
     "choices": ["Se réveiller"]
 },
 {
