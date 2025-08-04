@@ -34,8 +34,8 @@
   },
   {
     "id": "q2",
-    "question": "Sykane annonce: <Nahis, il est bon de te revoir. Nous devons échanger un instant, je te prie.>",
-    "choices": ["<Je t'écoute.>",
+    "question": "Sykane annonce: &lt;Nahis, il est bon de te revoir. Nous devons échanger un instant, je te prie.&gt;",
+    "choices": ["&lt;Je t'écoute.&gt;",
         "S'approcher de Sykane",
         "L'ignorer, chercher une issue dans le vide autour de vous."
     ],
@@ -45,8 +45,8 @@
   },
   {
     "id": "q3",
-    "question": "Zantras continue: <Je sais que tu veux profiter de tes nouvelles capacités pour ramener ta compagne à la vie. Mais tant que je suis prisonnier en ces terres, je ne pourrais pas t'aider à la ressusciter.>",
-    "choices": ["<Je comprends.>", "<Je ne te crois pas.>", "<Que dois-je faire alors ?>", "L'ignorer, chercher une issue dans le vide autour de vous."],
+    "question": "Zantras continue: &lt;Je sais que tu veux profiter de tes nouvelles capacités pour ramener ta compagne à la vie. Mais tant que je suis prisonnier en ces terres, je ne pourrais pas t'aider à la ressusciter.&gt;",
+    "choices": ["&lt;Je comprends.&gt;", "&lt;Je ne te crois pas.&gt;", "&lt;Que dois-je faire alors ?&gt;", "L'ignorer, chercher une issue dans le vide autour de vous."],
     "next": {
       "1": "q4", 
       "2": "q5", 
@@ -56,7 +56,7 @@
 },
 {
     "id": "q4",
-    "question": "<Si tu me libères, je pourrai t'aider. Si tu arrivais à quitter la Barovie, tu pourrais la ramener près de ma prison, là où je suis le plus fort. Ce sont les deux seules options qui me semblent possibles.>",
+    "question": "&lt;Si tu me libères, je pourrai t'aider. Si tu arrivais à quitter la Barovie, tu pourrais la ramener près de ma prison, là où je suis le plus fort. Ce sont les deux seules options qui me semblent possibles.&gt;",
     "choices": ["Demander comment le libérer.", "Demander comment quitter la Barovie.", "Douter de Sykane. Il ment peut-être."],
     "next": {
       "1": "q6", 
@@ -66,8 +66,8 @@
 },
 {
     "id": "q5",
-    "question": "Sykane continue : <Un choix s'offre à toi : Tu peux me faire confiance ou douter de moi. Je ne te dérangerai plus si c'est là ton souhait.>",
-    "choices": ["<Je te fais confiance. Dis-moi comment te libérer.>", "<Je te fais confiance. Dis-moi comment ramener ma compagne à ta prison.>", "Douter de Sykane.", "Renier Sykane et son pouvoir infâme."],
+    "question": "Sykane continue : &lt;Un choix s'offre à toi : Tu peux me faire confiance ou douter de moi. Je ne te dérangerai plus si c'est là ton souhait.&gt;",
+    "choices": ["&lt;Je te fais confiance. Dis-moi comment te libérer.&gt;", "&lt;Je te fais confiance. Dis-moi comment ramener ma compagne à ta prison.&gt;", "Douter de Sykane.", "Renier Sykane et son pouvoir infâme."],
     "next": {
       "1": "q6", 
       "2": "q7", 
@@ -77,8 +77,8 @@
 },
 {
     "id": "q6",
-    "question": "<Pour me libérer, il te faudra trouver le temple d'Ambre. Son emplacement est un secret bien gardé, et je pense que Strahd a mis en place des mesures de protection.>",
-    "choices": ["<Dans ce cas, j'interrogerai Strahd quand il sera à ma merci.>", "Abandonner. C'est trop compliqué."],
+    "question": "&lt;Pour me libérer, il te faudra trouver le temple d'Ambre. Son emplacement est un secret bien gardé, et je pense que Strahd a mis en place des mesures de protection.&gt;",
+    "choices": ["&lt;Dans ce cas, j'interrogerai Strahd quand il sera à ma merci.&gt;", "Abandonner. C'est trop compliqué."],
     "next": {
       "1": "q10", 
       "2": "q8"
@@ -86,7 +86,7 @@
 },
 {
     "id": "q7",
-    "question": "<Pour quitter la Barovie, il faudra vaincre Strahd. C'est lui qui contrôle ces terres maudites et ceux qui peuvent y aller ou en partir.>",
+    "question": "&lt;Pour quitter la Barovie, il faudra vaincre Strahd. C'est lui qui contrôle ces terres maudites et ceux qui peuvent y aller ou en partir.&gt;",
     "choices": ["C'est décidé. Il est temps de tuer Strahd.", "Abandonner. C'est trop compliqué."],
     "next": {
       "1": "q10", 
@@ -95,18 +95,18 @@
 },
 {
     "id": "q8",
-    "question": "Sykane produit de sous sa cape une sorte de bâton, qu'il te lance. <Pars, et emporte cette preuve de mon amitié. Viens me retrouver si tu en as le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe. Rien ne semble avoir changé, si ce n'est que l'étrange bâton est maintenant présent entre tes mains.",
+    "question": "Sykane produit de sous sa cape une sorte de bâton, qu'il te lance. &lt;Pars, et emporte cette preuve de mon amitié. Viens me retrouver si tu en as le besoin...&gt;. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe. Rien ne semble avoir changé, si ce n'est que l'étrange bâton est maintenant présent entre tes mains.",
     "choices": ["Se réveiller"]
 },
 {
     "id": "q9",
-    "question": "la capuche de Sykane s'efface, révélant l'horrible visage sans yeux. Sa voix se fait puissante et si grave que l'air semble vibrer: <Tu peux me quitter si ça te chante, ce n'est pas moi que tu condamnes à une éternité de souffrance, mais ta femme ! >. La pièce s'assombrit, jusqu'à être remplacé par le vide absolu. Tu te mets à suffoquer un instant, à tenter d'attraper l'air, mais tes pieds se dérobent sous toi. Tu sors de ta transe, d'abord prise de panique. Puis ton souffle se ralentit, et tu te sens plus légère qu'auparavant.",
+    "question": "la capuche de Sykane s'efface, révélant l'horrible visage sans yeux. Sa voix se fait puissante et si grave que l'air semble vibrer: &lt;Tu peux me quitter si ça te chante, ce n'est pas moi que tu condamnes à une éternité de souffrance, mais ta femme ! &gt;. La pièce s'assombrit, jusqu'à être remplacé par le vide absolu. Tu te mets à suffoquer un instant, à tenter d'attraper l'air, mais tes pieds se dérobent sous toi. Tu sors de ta transe, d'abord prise de panique. Puis ton souffle se ralentit, et tu te sens plus légère qu'auparavant.",
     "choices": ["Se réveiller"]
 },
 {
     "id": "q10",
-    "question": "Sykane s'approche vers toi en disant : <Mettons toutes les chances de notre côté, tends-moi la main.>. Un désir impétueux s'empare de toi et tu tends la main. La silhouette encapuchonnée se penche vers ton bras, et tu sens une fraîcheur mordante déchirer le dos de ta main alors qu'un bruit de suction se fait entendre. Pendant quelques instants, tu t'immobilises, puis la douleur se fait si intense que ta vision devient un flash aveuglant. Tu te réveilles, la respiration tremblante. Le dos de ta main est marqué d'un ensemble de cercles concentriques, et tu te sens plus puissante qu'auparavant.",
+    "question": "Sykane s'approche vers toi en disant : &lt;Mettons toutes les chances de notre côté, tends-moi la main.&gt;. Un désir impétueux s'empare de toi et tu tends la main. La silhouette encapuchonnée se penche vers ton bras, et tu sens une fraîcheur mordante déchirer le dos de ta main alors qu'un bruit de suction se fait entendre. Pendant quelques instants, tu t'immobilises, puis la douleur se fait si intense que ta vision devient un flash aveuglant. Tu te réveilles, la respiration tremblante. Le dos de ta main est marqué d'un ensemble de cercles concentriques, et tu te sens plus puissante qu'auparavant.",
     "choices": ["Se réveiller"]
     
-},
+}
 ]

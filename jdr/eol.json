@@ -48,13 +48,13 @@
   },
   {
     "id": "q1c",
-    "question": "La pièce se met à s'effacer lentement. Ton regard se pose sur le titre d'un livre: <Moi, Strahd>. Il est fermé d'un loquet ornementé. Tu n'as pas le temps de l'ouvrir que la pièce disparaît complètement, te laissant dans le noir.",
+    "question": "La pièce se met à s'effacer lentement. Ton regard se pose sur le titre d'un livre: &lt;Moi, Strahd&gt;. Il est fermé d'un loquet ornementé. Tu n'as pas le temps de l'ouvrir que la pièce disparaît complètement, te laissant dans le noir.",
     "choices": ["Se réveiller."]
 },
 {
     "id": "q2",
-    "question": "Yyrga s'éloigne en direction de la fenêtre. En le suivant, tu remarques qu'il semble regarder quelque chose à l'extérieur. Il se tourne vers toi et dit: <Tu sais, je suis content que tu sois là. J'ai besoin de ton aide pour quelque chose.>",
-    "choices": ["<Dis-moi tout.>", "Écouter attentivement", "Regarder par la fenêtre", "<Je suis désolé, je veux juste quitter la Barovie et rentrer chez moi.>"],
+    "question": "Yyrga s'éloigne en direction de la fenêtre. En le suivant, tu remarques qu'il semble regarder quelque chose à l'extérieur. Il se tourne vers toi et dit: &lt;Tu sais, je suis content que tu sois là. J'ai besoin de ton aide pour quelque chose.&gt;",
+    "choices": ["&lt;Dis-moi tout.&gt;", "Écouter attentivement", "Regarder par la fenêtre", "&lt;Je suis désolé, je veux juste quitter la Barovie et rentrer chez moi.&gt;"],
     "next": {
       "1": "q2b ", 
       "2": "q2b", 
@@ -64,7 +64,7 @@
 },
 {
     "id": "q2a",
-    "question": "Par-delà la fenêtre, tu vois l'intérieur d'un bâtiment large et haut, de pierre, que le temps n'a pas épargné. Des ombres se déplacent à l'intérieur, et tu entends des murmures indistincts. Le tout est troublé par un épais mur à la couleur ambrée. Yyrga te dit: <Je veux sortir de là. J'en ai assez de cette pierre qui me bloque.>",
+    "question": "Par-delà la fenêtre, tu vois l'intérieur d'un bâtiment large et haut, de pierre, que le temps n'a pas épargné. Des ombres se déplacent à l'intérieur, et tu entends des murmures indistincts. Le tout est troublé par un épais mur à la couleur ambrée. Yyrga te dit: &lt;Je veux sortir de là. J'en ai assez de cette pierre qui me bloque.&gt;",
     "choices": ["Constater que la pierre ambrée ressemble à la matière qui constitue le pendentif de Ivan."],
     "next": {
       "1": "q2b"
@@ -72,7 +72,7 @@
 },
 {
     "id": "q2b",
-    "question": "Yyrga continue :<Je suis tenu prisonnier. Promets de m'aider à sortir de là, tout comme je promets de t'aider à sauver Warren.>",
+    "question": "Yyrga continue :&lt;Je suis tenu prisonnier. Promets de m'aider à sortir de là, tout comme je promets de t'aider à sauver Warren.&gt;",
     "choices": ["Promettre", "Garder le silence."],
     "next": {
       "1": "q2c", 
@@ -81,13 +81,13 @@
 },
 {
     "id": "q2c",
-    "question": "Yyrga tourne à nouveau la tête vers la fenêtre, un air rassuré sur le visage: <Je vais aller voir comment il se porte. Reviens me voir demain.>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe.",
+    "question": "Yyrga tourne à nouveau la tête vers la fenêtre, un air rassuré sur le visage: &lt;Je vais aller voir comment il se porte. Reviens me voir demain.&gt;. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe.",
     "choices": ["Se réveiller."]
     
 },
 {
     "id": "q2d",
-    "question": "Yyrga tourne à nouveau la tête vers la fenêtre, un air déçu sur le visage: <Je vais aller voir comment se porte Warren. Reviens me voir une prochaine fois.>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe.",
+    "question": "Yyrga tourne à nouveau la tête vers la fenêtre, un air déçu sur le visage: &lt;Je vais aller voir comment se porte Warren. Reviens me voir une prochaine fois.&gt;. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe.",
     "choices": ["Se réveiller."]
 },
 {
@@ -105,7 +105,7 @@
 },
 {
     "id": "q4",
-    "question": "<Et comment comptes-tu faire ça ?>",
+    "question": "&lt;Et comment comptes-tu faire ça ?&gt;",
     "choices": ["Je vais tuer Strahd, et faire disparaître ses maudites brumes.", "Je vais me faire emmener par les Vistani."],
     "next": {
       "any": "q4b"
@@ -114,7 +114,7 @@
 },
 {
     "id": "q4b",
-    "question": "Yyrga s'esclaffe de rire : <Bonne chance pour ce plan, tu en auras bien besoin !>. Il se met à rire et à courir dans la bibliothèque. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe, l'inquiétude pesant sur tes épaules.",
+    "question": "Yyrga s'esclaffe de rire : &lt;Bonne chance pour ce plan, tu en auras bien besoin !&gt;. Il se met à rire et à courir dans la bibliothèque. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe, l'inquiétude pesant sur tes épaules.",
     "choices": ["Se réveiller"]
 }
 ]
