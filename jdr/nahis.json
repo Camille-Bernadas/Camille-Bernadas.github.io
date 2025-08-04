@@ -1,127 +1,112 @@
 [
   {
-    "id": "q1",
-    "question": "Pendant la nuit, Zantras t'apparaît. Il est dans son siège, derrière ce simple bureau de bois, dans la grande salle où il t'a déjà accueilli maintes fois. Derrière toi, bloqués par une porte de bois, les bruits et musique étrangement familiers d'une taverne se font entendre.",
-    "choices": ["Le saluer chaleureusement",
-        "Le saluer avec déférence",
-        "Se montrer méfiant",
-        "L'ignorer, se rapprocher de la porte en bois."
+    "id": "i1",
+    "question": "Que préfères-tu pour ton personnage ?",
+    "choices": ["Mourir en héros",
+        "Survivre et partir de Barovie.",
+        "Tout me convient",
+        "Survivre et rester en Barovie"
     ],
     "next": {
-      "1": "q2", 
-      "2": "q2", 
-      "3": "q3", 
-      "4": "q7"
+      "any": "i2"
+    }
+  },
+  {
+    "id": "i2",
+    "question": "Il faudra envoyer à Camille le code que tu obtiendras à la fin du questionnaire. Il ne faut pas recommencer le questionnaire pour lire les autres réponses, pas de triche ! Tu sauras quelles bonus et malus ton personnage obtient quand Camille répondra à ton code.",
+    "choices": ["Commencer la nuit."
+    ],
+    "next": {
+      "any": "q1"
+    }
+  },
+  {
+    "id": "q1",
+    "question": "Pendant la nuit, Sykane t'apparaît. Il est droit, se tenant à son épée posée sur le sol, dans cet espace gris et indistinct. Sa tête est couverte d'une capuche noire mais ses cornes la transpercent. Seule sa respiration, semblable à un râle, perce le silence.",
+    "choices": ["Le saluer chaleureusement",
+        "Le saluer avec déférence",
+        "Se montrer méfiante",
+        "L'ignorer, chercher une issue dans le vide autour de vous."
+    ],
+    "next": {
+      "any": "q2"
     }
   },
   {
     "id": "q2",
-    "question": "Zantras s'exclame: <Mon ami ! Approche, je t'en prie. Nous avons de nombreux points à aborder.>",
-    "choices": ["<Ah bon ? Lesquels ?>",
-        "<Bien sûr !> S'asseoir en face de Zantras",
-        "Paniquer, et partir en courant vers la porte en bois.",
-        "Refuser d'un signe de tête, et s'éloigner."
+    "question": "Sykane annonce: <Nahis, il est bon de te revoir. Nous devons échanger un instant, je te prie.>",
+    "choices": ["<Je t'écoute.>",
+        "S'approcher de Sykane",
+        "L'ignorer, chercher une issue dans le vide autour de vous."
     ],
     "next": {
-      "1": "q3", 
-      "2": "q3", 
-      "3": "q7", 
-      "4": "q7"
+      "any": "q3"
     }
   },
   {
     "id": "q3",
-    "question": "Zantras annonce: <Tu as une dette envers moi, tu me dois la vie après tout. Et pour payer ta dette, je pense que le plus simple serait... Une vie pour une vie. >",
-    "choices": ["<Celle de qui ?>", "<Je ne suis pas un meurtrier, je ne combats que pour la justice.>", "<Je refuse. Catégoriquement.>", "Paniquer, et partir en courant vers la porte en bois."],
+    "question": "Zantras continue: <Je sais que tu veux profiter de tes nouvelles capacités pour ramener ta compagne à la vie. Mais tant que je suis prisonnier en ces terres, je ne pourrais pas t'aider à la ressusciter.>",
+    "choices": ["<Je comprends.>", "<Je ne te crois pas.>", "<Que dois-je faire alors ?>", "L'ignorer, chercher une issue dans le vide autour de vous."],
     "next": {
       "1": "q4", 
-      "2": "q4", 
+      "2": "q5", 
       "3": "q4", 
-      "4": "q7"
-    }
-},
-{
-    "id": "q4",
-    "question": "<Il faut absolument tuer le tyran Strahd. Et que tu prennes sa place en tant que Roi humble et juste, honnête et protecteur.>",
-    "choices": ["<D'accord.>", "<Je le tuerai, mais je ne prendrai pas sa place.>", "Garder le silence.", "<Je veux juste quitter la Barovie et rentrer chez moi.>"],
-    "next": {
-      "1": "q6", 
-      "2": "q6", 
-      "3": "q6", 
       "4": "q5"
     }
 },
 {
-    "id": "q5",
-    "question": "<Il est impossible de quitter la Barovie tant que Strahd contrôle la région.>",
-    "choices": ["<Je comprends.>", "Garder le silence.", "Refuser malgré tout et s'éloigner.", "<Je ne te fais pas confiance. Tu pourrais me mentir !>"],
+    "id": "q4",
+    "question": "<Si tu me libères, je pourrai t'aider. Si tu arrivais à quitter la Barovie, tu pourrais la ramener près de ma prison, là où je suis le plus fort. Ce sont les deux seules options qui me semblent possibles.>",
+    "choices": ["Demander comment le libérer.", "Demander comment quitter la Barovie.", "Douter de Sykane. Il ment peut-être."],
     "next": {
       "1": "q6", 
-      "2": "q6", 
-      "3": "q7", 
-      "4": "q11"
+      "2": "q7", 
+      "3": "q5"
+    }
+},
+{
+    "id": "q5",
+    "question": "Sykane continue : <Un choix s'offre à toi : Tu peux me faire confiance ou douter de moi. Je ne te dérangerai plus si c'est là ton souhait.>",
+    "choices": ["<Je te fais confiance. Dis-moi comment te libérer.>", "<Je te fais confiance. Dis-moi comment ramener ma compagne à ta prison.>", "Douter de Sykane.", "Renier Sykane et son pouvoir infâme."],
+    "next": {
+      "1": "q6", 
+      "2": "q7", 
+      "3": "q8",
+      "4": "q9"
     }
 },
 {
     "id": "q6",
-    "question": "<Laisse moi t'aider. Je vais te prêter ma force, mais il faut d'abord que tu promettes de m'aider quand j'aurai besoin de ton aide.>",
-    "choices": ["Promettre", "<Merci beaucoup. C'est d'accord !>", "<Non merci, garde tes forces. Je me débrouillerai.>", "<Je ne te promets rien du tout.>"],
+    "question": "<Pour me libérer, il te faudra trouver le temple d'Ambre. Son emplacement est un secret bien gardé, et je pense que Strahd a mis en place des mesures de protection.>",
+    "choices": ["<Dans ce cas, j'interrogerai Strahd quand il sera à ma merci.>", "Abandonner. C'est trop compliqué."],
     "next": {
-      "1": "q9", 
-      "2": "q9", 
-      "3": "q10", 
-      "4": "q10"
+      "1": "q10", 
+      "2": "q8"
     }
 },
 {
     "id": "q7",
-    "question": "La porte semble fermée mais une douce lumière orange filtre à travers le trou de la serrure; elle n'est pas verrouillée. Tu reconnais la voix d'Eol et Maximilien dans l'autre pièce.",
-    "choices": ["Ouvrir la porte."],
+    "question": "<Pour quitter la Barovie, il faudra vaincre Strahd. C'est lui qui contrôle ces terres maudites et ceux qui peuvent y aller ou en partir.>",
+    "choices": ["C'est décidé. Il est temps de tuer Strahd.", "Abandonner. C'est trop compliqué."],
     "next": {
-      "any": "q7b"
-    }
-},
-{
-    "id": "q7b",
-    "question": "La pièce est une salle commune ordinaire mais, alors que tu ouvres la porte, le feu de l'âtre se met à grandir et à dévorer tout sur son passage. Eol, Maximilien, Mélisandre et Nahis sont entourés par les flammes et semblent apeurés.",
-    "choices": ["Observer la scène sans bouger.","Chercher des yeux un moyen de les aider, une corde, un sceau d'eau, n'importe quoi.","Crier à l'aide.","Foncer à travers les flammes malgré le danger."],
-    "next": {
-      "1": "q8", 
-      "2": "q8", 
-      "3": "q8", 
-      "4": "q10"
+      "1": "q10", 
+      "2": "q8"
     }
 },
 {
     "id": "q8",
-    "question": "Les cris de panique sont rapidement remplacés par des cris de souffrance, puis après quelques instants infinis, le silence s'installe. Zantras pose une main sur ton épaule: <Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.>",
-    "choices": ["<... Tu as raison, il faut le vaincre.>", "Se détourner de cette scène horrifique et suivre Zantras jusqu'au bureau.", "Repousser la main de Zantras. Tu ne veux plus rien avoir à faire avec lui pour l'instant.", "<Tu mens, c'est ta faute, JE TE HAIS !>"],
-    "next": {
-      "1": "q9", 
-      "2": "q9", 
-      "3": "q11", 
-      "4": "q12"
-    }
+    "question": "Sykane produit de sous sa cape une sorte de bâton, qu'il te lance. <Pars, et emporte cette preuve de mon amitié. Viens me retrouver si tu en as le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu sors de ta transe. Rien ne semble avoir changé, si ce n'est que l'étrange bâton est maintenant présent entre tes mains.",
+    "choices": ["Se réveiller"]
 },
 {
     "id": "q9",
-    "question": "Zantras produit de sa cape une couronne d'or. Il te la pose sur la tête et tu te sens plus... royal. Zantras t'adresse alors un sourire carnassier et un regard entendu. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
+    "question": "la capuche de Sykane s'efface, révélant l'horrible visage sans yeux. Sa voix se fait puissante et si grave que l'air semble vibrer: <Tu peux me quitter si ça te chante, ce n'est pas moi que tu condamnes à une éternité de souffrance, mais ta femme ! >. La pièce s'assombrit, jusqu'à être remplacé par le vide absolu. Tu te mets à suffoquer un instant, à tenter d'attraper l'air, mais tes pieds se dérobent sous toi. Tu sors de ta transe, d'abord prise de panique. Puis ton souffle se ralentit, et tu te sens plus légère qu'auparavant.",
     "choices": ["Se réveiller"]
 },
 {
     "id": "q10",
-    "question": "Le sourire permanent de Zantras s'efface, laissant la place à un regard sombre. La pièce s'assombrit et s'efface alors que le rêve s'envole en volutes de fumée. Pendant quelques instants, les yeux maintenant oranges de Zantras continuent à te fixer d'un air mauvais dans un noir complet. Tu te réveilles, épuisé mais le coeur un peu plus léger.",
+    "question": "Sykane s'approche vers toi en disant : <Mettons toutes les chances de notre côté, tends-moi la main.>. Un désir impétueux s'empare de toi et tu tends la main. La silhouette encapuchonnée se penche vers ton bras, et tu sens une fraîcheur mordante déchirer le dos de ta main alors qu'un bruit de suction se fait entendre. Pendant quelques instants, tu t'immobilises, puis la douleur se fait si intense que ta vision devient un flash aveuglant. Tu te réveilles, la respiration tremblante. Le dos de ta main est marqué d'un ensemble de cercles concentriques, et tu te sens plus puissante qu'auparavant.",
     "choices": ["Se réveiller"]
     
 },
-{
-    "id": "q11",
-    "question": "Le sourire permanent de Zantras se fixe dans une expression de surprise: <Je vais te laisser en paix. Viens me trouver quand tu en auras le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, en sueur et la respiration sifflante.",
-    "choices": ["Se réveiller"]
-},
-{
-    "id": "q12",
-    "question": "C'est plus fort que toi, une force impétueuse qui dirige ton bras. Le sourire permanent de Zantras ne s'efface pas alors que tu plonges ta lame dans son coeur. Tu sens une force traverser la lame et venir t'abreuver. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
-    "choices": ["Se réveiller"]
-}
 ]

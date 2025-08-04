@@ -1,69 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Short Code Quiz</title>
+  <title>Décodeur de quiz</title>
   <style>
     body {
       font-family: sans-serif;
       padding: 2rem;
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
     }
-    .question {
+    .question-block {
       margin-bottom: 1.5rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
     }
     label {
       display: block;
       margin: 0.25rem 0;
     }
-    #result {
-      margin-top: 2rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
     input[type="text"] {
-      width: 100px;
+      width: 150px;
+    }
+    select {
+      margin-left: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Quiz</h1>
+  <h1>Décodeur de quiz</h1>
 
-  <h2>Decode a code</h2>
-  <input type="text" id="decodeInput" placeholder="e.g. A8" />
-  <button id="decodeBtn">Decode</button>
+  <p>
+    Entrez un code (base 36) et chargez un fichier JSON contenant les questions du quiz.
+  </p>
+
+  <div>
+    <input type="text" id="decodeInput" placeholder="e.g. A8" />
+    <button id="decodeBtn">Décoder</button>
+
+    <label for="jsonLoader">Charger un fichier JSON :</label>
+    <input type="file" id="jsonLoader" accept=".json" />
+  </div>
+
   <div id="decodedResult"></div>
 
   <script>
-    const questionCount = 6;
-    const questionsEl = document.getElementById("questions");
+    let quizData = [];
 
-    
-
-    // Decode code
-    function decodeAnswersBase4(code, count) {
+    // Decode base36 → base4 → array of answers
+    function decodeAnswersBase4(code, maxLength = 100) {
       let number = parseInt(code, 36);
       const answers = [];
-      for (let i = 0; i < count; i++) {
+      while (number > 0 && answers.length < maxLength) {
         answers.unshift((number % 4) + 1);
         number = Math.floor(number / 4);
       }
       return answers;
     }
 
-    
+    // Load JSON
+    document.getElementById('jsonLoader').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
 
-    // Handle decode
-    document.getElementById("decodeBtn").addEventListener("click", () => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          quizData = JSON.parse(event.target.result);
+          alert("Fichier chargé avec succès !");
+        } catch (e) {
+          alert("Erreur lors du chargement du fichier JSON.");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // Main decode logic
+    document.getElementById('decodeBtn').addEventListener('click', () => {
       const code = document.getElementById("decodeInput").value.trim().toUpperCase();
-      if (!code.match(/^[0-9A-Z]+$/)) {
-        document.getElementById("decodedResult").textContent = "Invalid code.";
+      if (!/^[0-9A-Z]+$/.test(code)) {
+        document.getElementById("decodedResult").textContent = "Code invalide.";
         return;
       }
-      const answers = decodeAnswersBase4(code, questionCount);
-      document.getElementById("decodedResult").textContent =
-        `Decoded answers: ${answers.join(", ")}`;
+
+      if (!quizData.length) {
+        document.getElementById("decodedResult").textContent = "Veuillez d'abord charger un fichier JSON.";
+        return;
+      }
+
+      const decodedAnswers = decodeAnswersBase4(code, 100); // up to 100 answers max
+      const log = [];
+      let answerIndex = 0;
+      let currentId = quizData[0].id;
+
+      while (currentId && answerIndex < decodedAnswers.length) {
+        const question = quizData.find(q => q.id === currentId);
+        if (!question) break;
+
+        const selected = decodedAnswers[answerIndex] || 1;
+        const choiceText = question.choices[selected - 1] || "Réponse inconnue";
+
+        log.push({
+          id: question.id,
+          question: question.question,
+          selected: selected,
+          answer: choiceText
+        });
+
+        // Determine next question
+        const next = question.next;
+        if (!next) break;
+
+        const nextId = next[selected.toString()] || next["any"];
+        currentId = nextId;
+        answerIndex++;
+      }
+
+      // Display result
+      const resultEl = document.getElementById("decodedResult");
+      resultEl.innerHTML = `<p><strong>Réponses décodées:</strong> [${decodedAnswers.join(", ")}]</p>`;
+      resultEl.innerHTML += `<h3>Chemin parcouru :</h3>`;
+
+      log.forEach((entry, i) => {
+        resultEl.innerHTML += `
+          <div class="question-block">
+            <strong>Q${i + 1} [${entry.id}]</strong><br/>
+            ${entry.question}<br/>
+            ➤ <em>${entry.answer}</em>
+          </div>
+        `;
+      });
     });
   </script>
 </body>

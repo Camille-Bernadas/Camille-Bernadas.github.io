@@ -1,127 +1,145 @@
 [
   {
+    "id": "i1",
+    "question": "Que préfères-tu pour ton personnage ?",
+    "choices": ["Mourir en héros",
+        "Survivre et partir de Barovie.",
+        "Tout me convient",
+        "Survivre et rester en Barovie"
+    ],
+    "next": {
+      "any": "i2"
+    }
+  },
+  {
+    "id": "i2",
+    "question": "Il faudra envoyer à Camille le code que tu obtiendras à la fin du questionnaire. Il ne faut pas recommencer le questionnaire pour lire les autres réponses, pas de triche ! Tu sauras quelles bonus et malus ton personnage obtient quand Camille répondra à ton code.",
+    "choices": ["Commencer la nuit."
+    ],
+    "next": {
+      "any": "q1"
+    }
+  },
+  {
     "id": "q1",
-    "question": "Pendant la nuit, Zantras t'apparaît. Il est dans son siège, derrière ce simple bureau de bois, dans la grande salle où il t'a déjà accueilli maintes fois. Derrière toi, bloqués par une porte de bois, les bruits et musique étrangement familiers d'une taverne se font entendre.",
-    "choices": ["Le saluer chaleureusement",
-        "Le saluer avec déférence",
-        "Se montrer méfiant",
-        "L'ignorer, se rapprocher de la porte en bois."
+    "question": "Pendant la nuit, tu ressens l'appel de Khirad. Mais tu refuses cet appel, préférant te tourner vers cette mélodie, cette aura, douce, discrète, presque imperceptible. Alors que l'horizon de ta conscience est envahie par cette vibration bleue nuit presque ostentatoire, tu perçois l'infime scintillement de quelque chose d'autre... Concentrée sur ce scintillement, tu te retrouves dans une salle obscure, dans laquelle se trouve une table couverte d'une nappe noire, et un fauteuil haut et profond. Sur la table, une boîte en bois laqué et des bougies patientent. Quelque part, derrière toi, tu ressens la déception et le mécontentement de Khirad.",
+    "choices": ["S'approcher de la table, prendre place dans le fauteuil.",
+        "Observer la salle, à la recherche d'autre chose.",
+        "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."
     ],
     "next": {
       "1": "q2", 
-      "2": "q2", 
-      "3": "q3", 
-      "4": "q7"
+      "2": "q1", 
+      "3": "q0"
     }
   },
   {
+    "id": "q0",
+    "question": "Laissant la salle obscure derrière toi, tu rejoins Khirad dans la clairière baignée de bleu. Il te fait lui révéler ce que tu as appris, et te promet savoir et connaissance, tout ce qui te permettra de rapporter l'honneur au clan De Lombreval. Ces échanges semblent durer des heures, épuisants mais flous et indistincts. Quand le rêve se dissipe enfin, tu te réveilles dans la chambre de l'auberge, le soleil déjà levé projetant dans la pièce de fines lignes entre les volets. ",
+    "choices": ["Se réveiller"]
+  },
+  {
+    "id": "q1",
+    "question": "La pièce est anormalement sombre et vide. Il s'agit clairement d'un rêve ou d'une vision. Une présence familière presque imperceptible te provoque un léger frisson dans le dos. Tu te sens observée avec curiosité et innocence.",
+    "choices": ["S'approcher de la table, prendre place dans le fauteuil.",
+     "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
+    "next": {
+      "1": "q2", 
+      "2": "q0"
+    }
+},
+{
     "id": "q2",
-    "question": "Zantras s'exclame: <Mon ami ! Approche, je t'en prie. Nous avons de nombreux points à aborder.>",
-    "choices": ["<Ah bon ? Lesquels ?>",
-        "<Bien sûr !> S'asseoir en face de Zantras",
-        "Paniquer, et partir en courant vers la porte en bois.",
-        "Refuser d'un signe de tête, et s'éloigner."
-    ],
+    "question": "Quand tu t'asseois dans le fauteuil, les flammes des bougies vacillent un instant, comme t'apportant une confirmation. La boîte en bois contient un paquet enveloppé dans un linge blanc et fermé par un morceau de cordon. En le défaisant avec précaution, tu découvres un paquet de Tarokka.",
+    "choices": ["Tirer les cartes.", "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
     "next": {
       "1": "q3", 
-      "2": "q3", 
-      "3": "q7", 
-      "4": "q7"
+      "2": "q0"
     }
-  },
-  {
+},
+{
     "id": "q3",
-    "question": "Zantras annonce: <Tu as une dette envers moi, tu me dois la vie après tout. Et pour payer ta dette, je pense que le plus simple serait... Une vie pour une vie. >",
-    "choices": ["<Celle de qui ?>", "<Je ne suis pas un meurtrier, je ne combats que pour la justice.>", "<Je refuse. Catégoriquement.>", "Paniquer, et partir en courant vers la porte en bois."],
+    "question": "Le deck est posé sur la table.",
+    "choices": ["Ne pas mélanger le deck.", "Mélanger le deck.", "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
     "next": {
       "1": "q4", 
-      "2": "q4", 
-      "3": "q4", 
-      "4": "q7"
+      "2": "q5", 
+      "3": "q0"
     }
 },
 {
     "id": "q4",
-    "question": "<Il faut absolument tuer le tyran Strahd. Et que tu prennes sa place en tant que Roi humble et juste, honnête et protecteur.>",
-    "choices": ["<D'accord.>", "<Je le tuerai, mais je ne prendrai pas sa place.>", "Garder le silence.", "<Je veux juste quitter la Barovie et rentrer chez moi.>"],
+    "question": "Le deck est prêt à être tiré. Tu commences à tirer les cartes, une par une, en les posant sur la table dans l'ordre où tu les tires.",
+    "choices": ["Tirer 3 cartes", "Tirer 5 cartes", "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
     "next": {
-      "1": "q6", 
-      "2": "q6", 
-      "3": "q6", 
-      "4": "q5"
+      "1": "q4a", 
+      "2": "q4b", 
+      "3": "q0"
     }
+},
+{
+    "id": "q4a",
+    "question": "La première carte - Le Sombre Seigneur. La deuxième carte - La Marionnette. La troisième carte - Les Brumes. Tu hésites un instant sur la signification des cartes. Il te semble que La Marionnette indique que la première carte est contrôlée par la troisième, mais ne serait-il pas plus cohérent de déduire que Strahd contrôle les Brumes ?",
+    "choices": ["Se réveiller."]
+},
+{
+    "id": "q4b",
+    "question": "Les cartes sont, dans l'ordre : L'enchanteresse, La Sorcière, La Voyante, Le Moine et Le Paladin. Toutes les cartes sont à l'envers, la tête vers le bas. Tu réfléchis longuement sur la signification des cartes, mais rien ne semble évident, si ce n'est que tirer toutes les cartes dans le sens inverse est mauvais signe.",
+    "choices": ["Se réveiller."]
 },
 {
     "id": "q5",
-    "question": "<Il est impossible de quitter la Barovie tant que Strahd contrôle la région.>",
-    "choices": ["<Je comprends.>", "Garder le silence.", "Refuser malgré tout et s'éloigner.", "<Je ne te fais pas confiance. Tu pourrais me mentir !>"],
+    "question": "Tu te saisis du deck. Les cartes sont lourdes et froides, et tu sens une étrange énergie émaner de chacune d'elles. Tu commences à les mélanger, lentement, en les faisant glisser entre tes doigts. Tu te sens de plus en plus connectée à elles, comme si elles te parlaient.",
+    "choices": ["Mélanger à la manière des Voyants de la Côte des Épées.", 
+        "Mélanger à la manière enseignée par Stanimir le Vistana, et utilisée par Mme Eva.",
+        "Mélanger à la manière des pirates avinés, sans ménagement.",
+        "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."
+    ],
     "next": {
-      "1": "q6", 
-      "2": "q6", 
-      "3": "q7", 
-      "4": "q11"
+      "1": "q5a", 
+      "2": "q5b", 
+      "3": "q5a",
+      "4": "q0"
     }
 },
 {
-    "id": "q6",
-    "question": "<Laisse moi t'aider. Je vais te prêter ma force, mais il faut d'abord que tu promettes de m'aider quand j'aurai besoin de ton aide.>",
-    "choices": ["Promettre", "<Merci beaucoup. C'est d'accord !>", "<Non merci, garde tes forces. Je me débrouillerai.>", "<Je ne te promets rien du tout.>"],
+    "id": "q5a",
+    "question": "Le deck est prêt à être tiré. Tu commences à tirer les cartes, une par une, en les posant sur la table dans l'ordre où tu les tires.",
+    "choices": ["Tirer 3 cartes", "Tirer 5 cartes", "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
     "next": {
-      "1": "q9", 
-      "2": "q9", 
-      "3": "q10", 
-      "4": "q10"
+      "1": "q5a3", 
+      "2": "q5a5", 
+      "3": "q0"
     }
 },
 {
-    "id": "q7",
-    "question": "La porte semble fermée mais une douce lumière orange filtre à travers le trou de la serrure; elle n'est pas verrouillée. Tu reconnais la voix d'Eol et Maximilien dans l'autre pièce.",
-    "choices": ["Ouvrir la porte."],
+    "id": "q5a3",
+    "question": "la première carte est le Bourreau. Les deux suivantes, à l'envers, sont l'Innocente et le Corbeau. La mort injuste de l'Innocence et de la Bonne Fortune, voilà ce que les cartes te promettent.",
+    "choices": ["Se réveiller."]
+},
+{
+    "id": "q5a5",
+    "question": "Les premières cartes sont, dans l'ordre : La Tentatrice, L'Illusionniste, le Traître et Le Cavalier. La cinquième carte, tirée à l'envers et entourée par les quatre autres, est l'Homme Brisé. Cette dernière carte semble différente, et tu crois reconnaître les traits de Maximilien. Si ton intuition est bonne, il court un grave danger.",
+    "choices": ["Se réveiller."]
+},
+{
+    "id": "q5b",
+    "question": "Le deck est prêt à être tiré. Tu commences à tirer les cartes, une par une, en les posant sur la table dans l'ordre où tu les tires.",
+    "choices": ["Tirer 3 cartes", "Tirer 5 cartes", "Se laisser attirer par l'appel de Khirad, et quitter cette salle obscure."],
     "next": {
-      "any": "q7b"
+      "1": "q5b3", 
+      "2": "q5b5", 
+      "3": "q0"
     }
 },
 {
-    "id": "q7b",
-    "question": "La pièce est une salle commune ordinaire mais, alors que tu ouvres la porte, le feu de l'âtre se met à grandir et à dévorer tout sur son passage. Eol, Maximilien, Mélisandre et Nahis sont entourés par les flammes et semblent apeurés.",
-    "choices": ["Observer la scène sans bouger.","Chercher des yeux un moyen de les aider, une corde, un sceau d'eau, n'importe quoi.","Crier à l'aide.","Foncer à travers les flammes malgré le danger."],
-    "next": {
-      "1": "q8", 
-      "2": "q8", 
-      "3": "q8", 
-      "4": "q10"
-    }
+    "id": "q5b3",
+    "question": "Les cartes sont, dans l'ordre : La Vengeresse, Le Marchand et Les Brumes. Si les cartes sont honnêtes, il est temps de tuer Strahd et s'enfuir en roulotte de la Barovie.",
+    "choices": ["Se réveiller."]
 },
 {
-    "id": "q8",
-    "question": "Les cris de panique sont rapidement remplacés par des cris de souffrance, puis après quelques instants infinis, le silence s'installe. Zantras pose une main sur ton épaule: <Ne t'inquiète pas, ce n'est pas réel. La magie noire de Strahd pervertit jusqu'aux rêves des voyageurs sur ses terres... Mais nous pouvons le vaincre ensemble.>",
-    "choices": ["<... Tu as raison, il faut le vaincre.>", "Se détourner de cette scène horrifique et suivre Zantras jusqu'au bureau.", "Repousser la main de Zantras. Tu ne veux plus rien avoir à faire avec lui pour l'instant.", "<Tu mens, c'est ta faute, JE TE HAIS !>"],
-    "next": {
-      "1": "q9", 
-      "2": "q9", 
-      "3": "q11", 
-      "4": "q12"
-    }
-},
-{
-    "id": "q9",
-    "question": "Zantras produit de sa cape une couronne d'or. Il te la pose sur la tête et tu te sens plus... royal. Zantras t'adresse alors un sourire carnassier et un regard entendu. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
-    "choices": ["Se réveiller"]
-},
-{
-    "id": "q10",
-    "question": "Le sourire permanent de Zantras s'efface, laissant la place à un regard sombre. La pièce s'assombrit et s'efface alors que le rêve s'envole en volutes de fumée. Pendant quelques instants, les yeux maintenant oranges de Zantras continuent à te fixer d'un air mauvais dans un noir complet. Tu te réveilles, épuisé mais le coeur un peu plus léger.",
-    "choices": ["Se réveiller"]
-    
-},
-{
-    "id": "q11",
-    "question": "Le sourire permanent de Zantras se fixe dans une expression de surprise: <Je vais te laisser en paix. Viens me trouver quand tu en auras le besoin...>. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, en sueur et la respiration sifflante.",
-    "choices": ["Se réveiller"]
-},
-{
-    "id": "q12",
-    "question": "C'est plus fort que toi, une force impétueuse qui dirige ton bras. Le sourire permanent de Zantras ne s'efface pas alors que tu plonges ta lame dans son coeur. Tu sens une force traverser la lame et venir t'abreuver. Le rêve s'efface sous tes yeux en volutes de fumée. Tu te réveilles, reposé et étrangement fort.",
-    "choices": ["Se réveiller"]
+    "id": "q5b5",
+    "question": "Les cartes sont, dans l'ordre : Le Prêtre, Le Myrmidon, La Guérisseuse. Leur faisant face, la tête renversée vers le bas, Le Cavalier et Le Sombre Seigneur se dressent en opposition. La carte du Prêtre est déchirée, celle du Myrmidon rayée, et La Guérisseuse noircie par les flammes. Si le Myrmidon représente les héros triomphant dans des circonstances à leur désavantage, Le Cavalier et Le Sombre Seigneur sont ses adversaires. Le Prêtre et La Guérisseuse sont les alliés du Myrmidon, mais aucun n'en réchappera indemne.",
+    "choices": ["Se réveiller."]
 }
 ]
