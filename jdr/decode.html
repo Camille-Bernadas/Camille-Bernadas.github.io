@@ -15,10 +15,6 @@
       border-bottom: 1px solid #ccc;
       padding-bottom: 1rem;
     }
-    label {
-      display: block;
-      margin: 0.25rem 0;
-    }
     input[type="text"] {
       width: 150px;
     }
@@ -31,15 +27,20 @@
   <h1>Décodeur de quiz</h1>
 
   <p>
-    Entrez un code (base 36) et chargez un fichier JSON contenant les questions du quiz.
+    Entrez un code (base 36) et choisissez un fichier JSON depuis le dossier du site.
   </p>
 
   <div>
     <input type="text" id="decodeInput" placeholder="e.g. A8" />
     <button id="decodeBtn">Décoder</button>
 
-    <label for="jsonLoader">Charger un fichier JSON :</label>
-    <input type="file" id="jsonLoader" accept=".json" />
+    <label for="jsonSelect">Choisir un fichier :</label>
+    <select id="jsonSelect">
+      <option value="">-- Choisir --</option>
+      <option value="quiz1.json">quiz1.json</option>
+      <option value="quiz2.json">quiz2.json</option>
+      <option value="quiz_sykan.json">quiz_sykan.json</option>
+    </select>
   </div>
 
   <div id="decodedResult"></div>
@@ -47,7 +48,23 @@
   <script>
     let quizData = [];
 
-    // Decode base36 → base4 → array of answers
+    // Load JSON from same folder
+    document.getElementById("jsonSelect").addEventListener("change", async (e) => {
+      const file = e.target.value;
+      if (!file) return;
+
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error("Échec du chargement");
+
+        quizData = await response.json();
+        alert("Fichier chargé : " + file);
+      } catch (err) {
+        alert("Erreur lors du chargement du fichier JSON.");
+        quizData = [];
+      }
+    });
+
     function decodeAnswersBase4(code, maxLength = 100) {
       let number = parseInt(code, 36);
       const answers = [];
@@ -58,37 +75,20 @@
       return answers;
     }
 
-    // Load JSON
-    document.getElementById('jsonLoader').addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        try {
-          quizData = JSON.parse(event.target.result);
-          alert("Fichier chargé avec succès !");
-        } catch (e) {
-          alert("Erreur lors du chargement du fichier JSON.");
-        }
-      };
-      reader.readAsText(file);
-    });
-
-    // Main decode logic
-    document.getElementById('decodeBtn').addEventListener('click', () => {
+    document.getElementById("decodeBtn").addEventListener("click", () => {
       const code = document.getElementById("decodeInput").value.trim().toUpperCase();
+      const resultEl = document.getElementById("decodedResult");
       if (!/^[0-9A-Z]+$/.test(code)) {
-        document.getElementById("decodedResult").textContent = "Code invalide.";
+        resultEl.textContent = "Code invalide.";
         return;
       }
 
       if (!quizData.length) {
-        document.getElementById("decodedResult").textContent = "Veuillez d'abord charger un fichier JSON.";
+        resultEl.textContent = "Veuillez d'abord choisir un fichier JSON.";
         return;
       }
 
-      const decodedAnswers = decodeAnswersBase4(code, 100); // up to 100 answers max
+      const decodedAnswers = decodeAnswersBase4(code, 100);
       const log = [];
       let answerIndex = 0;
       let currentId = quizData[0].id;
@@ -107,20 +107,15 @@
           answer: choiceText
         });
 
-        // Determine next question
         const next = question.next;
         if (!next) break;
-
         const nextId = next[selected.toString()] || next["any"];
         currentId = nextId;
         answerIndex++;
       }
 
-      // Display result
-      const resultEl = document.getElementById("decodedResult");
       resultEl.innerHTML = `<p><strong>Réponses décodées:</strong> [${decodedAnswers.join(", ")}]</p>`;
       resultEl.innerHTML += `<h3>Chemin parcouru :</h3>`;
-
       log.forEach((entry, i) => {
         resultEl.innerHTML += `
           <div class="question-block">
