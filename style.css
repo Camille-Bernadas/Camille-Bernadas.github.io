@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   THEME
+   Change these variables to quickly change the appearance
+   ========================================================= */
+
+:root {
+  /* Main colors */
+  --color-background: #120c1a;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.62);
+  --color-text-subtle: rgba(255, 255, 255, 0.45);
+
+  /* Accent */
+  --color-accent: #b8b3ff;
+  --color-accent-1: #a78bfa;
+  --color-accent-2: #60a5fa;
+  --color-accent-3: #22d3ee;
+
+  /* Background glow */
+  --color-glow-1: rgba(120, 80, 255, 0.35);
+  --color-glow-2: rgba(0, 200, 255, 0.25);
+
+  /* Cards */
+  --color-card: rgba(255, 255, 255, 0.07);
+  --color-card-border: rgba(255, 255, 255, 0.12);
+  --color-card-highlight: rgba(255, 255, 255, 0.08);
+
+  /* Buttons */
+  --color-button: #ffffff;
+  --color-button-text: #08090f;
+  --color-button-hover-shadow: rgba(255, 255, 255, 0.18);
+
+  /* Form */
+  --color-input-background: rgba(0, 0, 0, 0.2);
+  --color-input-hover: rgba(255, 255, 255, 0.2);
+  --color-input-button: rgba(255, 255, 255, 0.1);
+  --color-placeholder: rgba(255, 255, 255, 0.3);
+
+  /* Error */
+  --color-error: rgba(255, 120, 120, 0.8);
+
+  /* Layout */
+  --card-radius: 28px;
+  --mobile-card-radius: 22px;
+  --card-gap: 24px;
+
+  /* Effects */
+  --card-blur: 20px;
+  --card-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--color-card-highlight);
+
+  /* Animation */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.25s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--color-text);
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      var(--color-glow-1),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      var(--color-glow-2),
+      transparent 35%
+    ),
+    var(--color-background);
+
+  /* Allow scrolling */
+  min-height: 100vh;
+}
+
+
+/* Hide scrollbar while keeping scrolling enabled */
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+main {
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+.cards {
+  width: min(900px, 100%);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+}
+
+
+/* Two cards side-by-side */
+
+.top-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--card-gap);
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+  padding: 40px;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--card-radius);
+
+  backdrop-filter: blur(var(--card-blur));
+  -webkit-backdrop-filter: blur(var(--card-blur));
+
+  box-shadow: var(--card-shadow);
+}
+
+
+/* Small cards */
+
+.small-card {
+  min-height: 260px;
+}
+
+
+/* Large card */
+
+.large-card {
+  min-height: 400px;
+  text-align: left;
+}
+
+.large-card p {
+  max-width: 430px;
+  margin: 28px 0 36px;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  color: var(--color-accent);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+h1 {
+  max-width: 800px;
+
+  margin: 0;
+
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-weight: 700;
+}
+
+
+h1 span {
+  display: block;
+
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-1),
+    var(--color-accent-2),
+    var(--color-accent-3)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+p {
+  max-width: 430px;
+
+  margin: 28px 0 36px;
+
+  color: var(--color-text-muted);
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 15px 22px;
+
+  color: var(--color-button-text);
+  background: var(--color-button);
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    gap var(--transition-normal);
+}
+
+
+.button span {
+  font-size: 1.2rem;
+
+  transition: transform var(--transition-normal);
+}
+
+
+.button:hover {
+  gap: 18px;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 35px var(--color-button-hover-shadow);
+}
+
+
+.button:hover span {
+  transform: translateX(3px);
+}
+
+
+.button:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SECRET KEYWORD FORM
+   ========================================================= */
+
+.secret-form {
+  margin-top: 42px;
+}
+
+
+.secret-form p {
+  margin: 0 0 14px;
+
+  color: var(--color-text-subtle);
+
+  font-size: 0.85rem;
+}
+
+
+#secret-form {
+  display: flex;
+
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 5px;
+
+  background: var(--color-input-background);
+
+  border: 1px solid var(--color-card-border);
+  border-radius: 999px;
+}
+
+
+#keyword {
+  min-width: 0;
+  flex: 1;
+
+  padding: 12px 16px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--color-text);
+
+  font: inherit;
+}
+
+
+#keyword::placeholder {
+  color: var(--color-placeholder);
+}
+
+
+#secret-form button {
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--color-input-button);
+  color: var(--color-text);
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  transition: var(--transition-fast);
+}
+
+
+#secret-form button:hover {
+  background: var(--color-input-hover);
+
+  transform: translateX(2px);
+}
+
+
+#error {
+  height: 20px;
+
+  margin-top: 10px;
+
+  color: var(--color-error);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.invalid {
+  animation: shake 0.35s ease;
+}
+
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .top-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .card {
+    padding: 32px 28px;
+    border-radius: var(--mobile-card-radius);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 15vw, 4rem);
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
